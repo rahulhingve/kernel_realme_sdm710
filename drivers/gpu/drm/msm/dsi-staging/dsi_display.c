@@ -50,6 +50,9 @@ extern bool oppo_ffl_trigger_finish;
 int backlight_min = 0;
 module_param(backlight_min, int, 0644);
 
+int backlight_min = 0;
+module_param(backlight_min, int, 0644);
+
 #define to_dsi_display(x) container_of(x, struct dsi_display, host)
 #define INT_BASE_10 10
 #define NO_OVERRIDE -1
