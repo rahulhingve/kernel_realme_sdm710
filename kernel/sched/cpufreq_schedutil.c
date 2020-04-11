@@ -796,16 +796,7 @@ static int sugov_init(struct cpufreq_policy *policy)
 		goto stop_kthread;
 	}
 
-	/*
-	 * NOTE:
-	 * intializing up_rate/down_rate to 0 explicitly in kernel
-	 * since WALT expects so by default.
-	 */
-	tunables->up_rate_limit_us = 0;
-	tunables->down_rate_limit_us = 0;
-
-	tunables->up_rate_limit_us = 500;
-	tunables->down_rate_limit_us = 2000;
+	tunables->rate_limit_us = LATENCY_MULTIPLIER;
 	tunables->hispeed_load = DEFAULT_HISPEED_LOAD;
 	tunables->hispeed_freq = 0;
 	lat = policy->cpuinfo.transition_latency / NSEC_PER_USEC;
